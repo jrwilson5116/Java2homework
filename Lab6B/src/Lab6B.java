@@ -1,6 +1,6 @@
 /*******************************
 * <put your name here>  	   
-* Lab 6B - Generic Linked List  				   *
+* Lab 6B - Generic Linked List  				   
 * Due: Tuesday, Oct.3, 2017
 *******************************/
 
@@ -98,13 +98,31 @@ class LinkedList<T> {
 Students to complete the following two methods
 **************************************************/
     // Adds item to the end of the list
-    public void addEnd(T item) {
-
+    public void addEnd( T item) {
+    	Node end = new Node(item);
+    	Node temp = new Node();
+    	temp = first;
+    	
+    	while(temp.next!=null) {
+    		temp=temp.next;
+    	}
+    	temp.next= end;
+    	
+    	
+    	
     }
-
     // Replaces the info in the list at location with item
     public void replace(int location, T item) {
-
+    	Node temp = new Node();
+    	
+    	temp = first;
+    	for (int i=0; i<location-1; i++) {
+    		temp=temp.next;
+    	}
+    	Node repNode = new Node(item,temp.next.next);
+    	temp.next=repNode;
+    	
+    	
     }
     ///////////////////////////////////////////////////////////////////////////
     // Inner class Node.
@@ -123,11 +141,13 @@ Students to complete the following two methods
         ******************************************************/
         // Creates a new Node and sets info to the argument
         public Node(T i) {
-            
+        	info = i;
+        	next = null;
         }
         // Creates a new Node and sets both info and next to the arguments
         public Node(T i, Node n) {
-            
+            info =i;
+            next =n;
         }
                 
     	// Sets the value for this node
@@ -154,26 +174,62 @@ Students to complete the following two methods
 ///////////////////////////////////////////////////////////////////////////////
 public class Lab6B {
 	public static void main(String args[]) {
-		LinkedList<Integer> intList = new LinkedList();
-		System.out.print("List of numbers before list creation: ");
-		for (int i =0; i < 10; i++) {
-			Integer info = (Integer)(int)(Math.random()*10);
-			System.out.print(info + " ");
-			intList.add(info);
+		String[] states = { "AK", "AL", "AR", "AZ", "CA", "CO", "CT", 
+        		"DC", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS",
+        		"KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", 
+        		"NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", 
+        		"OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", 
+        		"WA", "WI", "WV", "WY"};
+		
+		LinkedList<Double> doubleList = new LinkedList();
+		LinkedList<String> stringList = new LinkedList();
+		
+		int a;
+		for (int i=0;i<20;i++) {
+			a = (int)(Math.random()*50);
+			stringList.add(states[a]);
 		}
-		System.out.print
-			("\nList of numbers after list creation: "
-				+ intList);
-		System.out.println("\nLength of List: "  
-			+ intList.getLength());
-		System.out.println("First elements in the list is: " 
-                        + intList.get(1));
+		for (int i=0; i<15; i++) {
+			doubleList.add((int)(Math.random()*1000)/10.0);
+		}
+		
+		System.out.println("doubleList: "+doubleList);
+		System.out.println("stringList: "+stringList);
+		System.out.println("\nSize of doubleList is "+doubleList.getLength());
+		System.out.println("Size of stringList is "+stringList.getLength());
+			
+		doubleList.addEnd(25.1);
+		System.out.println("\ndoubleList after adding 25.1 to the end: \n"+ doubleList);
+		System.out.println("\ndoubleList length is now: "+doubleList.getLength());
+		
+		stringList.replace(1, "Replace Test");
+		stringList.replace(20, "Replace Test");
+		stringList.replace(10, "Replace Test");
+		System.out.println("\n\nstringList after testing replace method:");
+		System.out.println(stringList);
+		System.out.println("\nstringList length is now: "+ stringList.getLength() );
+		
 	}
 }
 
 /* Sample Program Output:
-List of numbers before list creation: 5 8 8 3 3 6 5 8 0 7 
-List of numbers after list creation: 7 0 8 5 6 3 3 8 8 5 
-Length of List: 10
-First elements in the list is: 7
+ * 
+ 
+	doubleList: 19.7 3.3 71.3 46.3 45.7 3.0 69.1 76.7 69.4 79.8 47.7 4.1 57.5 66.2 1.5 
+	stringList: MD NV MS TX MI AK DE CA CT CA MO MO CO AZ OH HI NY MA CO CO 
+
+	Size of doubleList is 15
+	Size of stringList is 20
+
+	doubleList after adding 25.1 to the end: 
+	9.7 3.3 71.3 46.3 45.7 3.0 69.1 76.7 69.4 79.8 47.7 4.1 57.5 66.2 1.5 25.1 
+
+	doubleList length is now: 16
+
+
+	stringList after testing replace method:
+	Replace Test NV MS TX MI AK DE CA CT Replace Test MO MO CO AZ OH HI NY MA CO Replace Test 
+
+	stringList length is now: 20
+
 */
