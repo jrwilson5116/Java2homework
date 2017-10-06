@@ -14,18 +14,7 @@ class ArrayList<T> {
     private T[] list;             //array to store the list items
     private int length;             //amount of items in the list
     
-    
-    
-
-public class Lab5B {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
-}
-   	
+	
     /**
      * Default constructor. Sets length to 0, initializing the list 
      * as an empty list. Default size of array is 20.
@@ -143,17 +132,17 @@ public class Lab5B {
     public void add(int position, T item) {
     		
    
-          if (position>length) {
+          if (position>length||position<1) {
         	  System.out.println("No can do");
-          }
+          }else {
           length++;
-          for(int i=length-1;i>=(position-1);i--){
-        	  		list[i]=list[i-1];
-        	  		
-        	  }
+	          for(int i=length-1;i>=(position-1);i--){
+	        	  		list[i]=list[i-1];
+	        	  		
+	          }
           list[position-1]= item;
           }
-    
+    }
 
     /**
      * Deletes an item from list. All occurrences of item in
@@ -183,7 +172,7 @@ public class Lab5B {
 /**
  * Class to test the ArrayList class.
  */
-public class Lab5A {
+public class Lab5B {
     public static void main(String[] args) {
     	
     	String[] states = { "AK", "AL", "AR", "AZ", "CA", "CO", "CT", 
@@ -229,74 +218,76 @@ public class Lab5A {
 }
 
 /**OUTPUT
- * 	IN 
-	LA 
-	IN 
-	OK 
-	MD 
-	KY 
-	MD 
-	TX 
-	OK 
-	FL 
-	MS 
-	AK 
-	ME 
-	DE 
+ * 	
 	VT 
-	KY 
-	NE 
-	AL 
+	UT 
 	RI 
+	NC 
+	OH 
+	PA 
+	MI 
+	KY 
+	TN 
+	AK 
+	MI 
+	OH 
+	AK 
+	OK 
+	OR 
+	CT 
+	NJ 
+	NM 
+	ND 
 	
-	LA 
-	IN 
+	UT 
 	Replace Test 
-	MD 
+	NC 
+	OH 
+	PA 
+	MI 
 	KY 
-	MD 
-	TX 
-	OK 
-	FL 
-	MS 
+	TN 
 	AK 
-	ME 
-	DE 
-	VT 
-	KY 
-	NE 
-	AL 
-	RI 
+	MI 
+	OH 
+	AK 
+	OK 
+	OR 
+	CT 
+	NJ 
+	NM 
+	ND 
 	
-	86.82609261593701 
-	5.366554289645387 
-	52.01829894453296 
-	30.210356836775077 
-	84.41879270528784 
-	22.177516006492894 
-	5.997146352455118 
-	61.83902545630684 
-	7.485640328206888 
-	15.667228872490513 
-	20.761863044262117 
-	46.4118471468868 
-	98.89219762154143 
-	61.609944788461256 
+	35.393513178148226 
+	34.145067581297226 
+	84.78538173771642 
+	18.64137686747994 
+	62.544786948258526 
+	93.8899899143805 
+	18.60010444918383 
+	26.532745519539812 
+	23.51384752186959 
+	47.0298958701191 
+	43.31823669168677 
+	70.58386107530411 
+	40.231249693304605 
+	86.50010761807042 
 	
-	86.82609261593701 
-	5.366554289645387 
-	52.01829894453296 
-	30.210356836775077 
-	1337.10101 
-	84.41879270528784 
-	22.177516006492894 
-	5.997146352455118 
-	61.83902545630684 
-	7.485640328206888 
-	15.667228872490513 
-	20.761863044262117 
-	46.4118471468868 
-	98.89219762154143 
-	61.609944788461256 
+	35.393513178148226 
+	34.145067581297226 
+	84.78538173771642 
+	18.64137686747994 
+	1337.101010101 
+	62.544786948258526 
+	93.8899899143805 
+	18.60010444918383 
+	26.532745519539812 
+	23.51384752186959 
+	47.0298958701191 
+	43.31823669168677 
+	70.58386107530411 
+	40.231249693304605 
+	86.50010761807042 
+
 
 	*/

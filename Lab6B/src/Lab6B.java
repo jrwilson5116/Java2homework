@@ -108,8 +108,6 @@ Students to complete the following two methods
     	}
     	temp.next= end;
     	
-    	
-    	
     }
     // Replaces the info in the list at location with item
     public void replace(int location, T item) {
